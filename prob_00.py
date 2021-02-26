@@ -1,1 +1,1 @@
-print("Hello Judge!")
+print("Hello jury!")
