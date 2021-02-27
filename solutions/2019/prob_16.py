@@ -6,14 +6,14 @@ def aminoacid(sequence):
     exit = False
     coding = False
     while not exit:
-        if seq < 2:
+        if len(seq) < 2:
             break
         codon = tabla[seq[:2]]
         if codon == 'START':
             coding = True
             seq = seq[2:]
         elif codon == 'END':
-            if coding == True:
+            if coding:
                 exit = True
             else:
                 seq = seq[1:]
@@ -27,7 +27,7 @@ def aminoacid(sequence):
                 seq = seq[2:]
             else:
                 seq = seq[1:]
-    if len(aminolist) == 0:
+    if len(aminolist) == 0 or not exit:
         return 'NONE'
     else:
         return ','.join(aminolist)

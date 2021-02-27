@@ -4,12 +4,14 @@ entrada = input()
 def fibonacci(n):
     fib = [0, 1, 1]
 
-    if n == 0:
-        return fib[0]
-    elif n > 0 and n <= 2:
+    if n > 0 and n <= 2:
         return fib[1]
+
+    elif n == 0:
+        return fib[0]
+
     else:
-        for x in range(n):
+        for x in range(3, n+1):
             fib.append(0)
             fib[x] = fib[x-1] + fib[x-2]
         return fib[n]
