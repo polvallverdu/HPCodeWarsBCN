@@ -1,6 +1,6 @@
 nuria = int(input())
 albert = int(input())
-suma = int(input())+int(input())
+suma = nuria+albert
 
 if suma < 100:
     print('The wedding will take place in Monestir de Sant Cugat.')
