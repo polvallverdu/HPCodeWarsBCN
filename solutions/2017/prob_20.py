@@ -1,6 +1,6 @@
 entrada = input()
-
 coste_avion, coste_coche, coste_habitacion, coste_comida, min_amigos, maximo_amigos = entrada.split()
+
 amigos = []
 costes_personas = []
 
@@ -20,14 +20,14 @@ for x in range(int(min_amigos), int(maximo_amigos)+1):
 
     coste_persona_coche = int(coste_coche)*numero_coches//x
     coste_persona_habitacion = int(coste_habitacion)*numero_habitaciones//x
-
     coste_persona_total = coste_persona_coche + \
         coste_persona_habitacion+int(coste_comida)
 
-    print(f'{x} friends. Cost per person by plane: {int(coste_avion)}. Cost per person by car: {coste_persona_total}')
-
     costes_personas.append(coste_persona_total)
     amigos.append(x)
+
+    print(f'{x} friends. Cost per person by plane: {int(coste_avion)}. Cost per person by car: {coste_persona_total}')
+
 
 valor_pequeño = costes_personas[0]
 numero_amigos = amigos[0]
