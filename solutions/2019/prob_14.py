@@ -11,4 +11,4 @@ while ciudadanos > 0:
     zombies += nuevos_zombies - muertos
     ciudadanos -= zombies
 
-print('days', dias)
+print(dias, 'days')
