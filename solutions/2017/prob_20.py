@@ -4,6 +4,10 @@ coste_avion, coste_coche, coste_habitacion, coste_comida, min_amigos, maximo_ami
 amigos = []
 costes_personas = []
 
+valor_pequeño = 0
+numero_amigos = 0
+
+
 for x in range(int(min_amigos), int(maximo_amigos)+1):
 
     numero_coches = 0
@@ -31,11 +35,18 @@ for x in range(int(min_amigos), int(maximo_amigos)+1):
 
 valor_pequeño = costes_personas[0]
 numero_amigos = amigos[0]
+medio_transporte = ''
 for x in range(len(costes_personas)):
     if costes_personas[x] < valor_pequeño:
         valor_pequeño = costes_personas[x]
         numero_amigos = amigos[x]
+        medio_transporte = 'car'
+
+if valor_pequeño > int(coste_avion):
+    numero_amigos = amigos[len(amigos)-1]
+    valor_pequeño = int(coste_avion)
+    medio_transporte = 'plane'
 
 
 print(
-    f'The optimal number of friends are: {numero_amigos}, and the total cost going by car is {valor_pequeño*numero_amigos}')
+    f'The optimal number of friends are: {numero_amigos}, and the total cost going by {medio_transporte} is {valor_pequeño*numero_amigos}')
