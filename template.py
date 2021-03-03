@@ -18,5 +18,4 @@ def get_inputs() -> list:
     return inputs
 
 
-if __name__ == "__main__":
-    solution(get_inputs())
+solution(get_inputs())
