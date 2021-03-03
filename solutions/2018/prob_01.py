@@ -1,4 +1,4 @@
-firstticket = int(input())
-returnticket = int(input())
+ida = int(input())
+vuelta = int(input())
 
-print("Ana should save a total of " + str(firstticket + returnticket) + " euros.")
+print('Ana tiene un total de {0} euros'.format((ida+vuelta)))
