@@ -6,7 +6,7 @@ nombre = str()
 posicion = 0
 
 for entrada in sys.stdin:
-    entrada = entrada.replace('\n', '')
+    entrada = entrada.replace('\n', '').replace('\r', '')
     num = float()
 
     is_name = True
@@ -42,7 +42,6 @@ for x in inputs:
 
 inputs_ordenada = sorted(
     inputs.items(), key=operator.itemgetter(1), reverse=True)
-
 
 for x in inputs_ordenada:
     print(
