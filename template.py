@@ -9,7 +9,7 @@ def get_inputs() -> list:
     inputs = list()
 
     for line in sys.stdin:
-        line = line.replace('\n', '').replace('\r', '')
+        line = line.replace('\n', '').replace('\r', '').lstrip().rstrip()
         if line == '#' or line == '' or line == "0":
             break
 
