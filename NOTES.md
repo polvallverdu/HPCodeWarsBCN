@@ -5,7 +5,7 @@
 Hi ha diferents tipus de variables en python:
 
 ```python
-# String: text
+# String: text. Sempre van entre '' o ""
 str("Això es un string")
 
 # Integer: nombre enter
@@ -16,6 +16,7 @@ float(69.5)
 ```
 També a python es solen utilitzar condicionals(if, else, elif) per posar condicions en la execució de codi
 
+<<<<<<< HEAD
 ```python
 
 a == b: #aixó es si a és igual a b
@@ -66,6 +67,45 @@ llista_float = [0.23, 1.45]
 llista_str[0] #això és igual a patata
 
 #per saber el numero de elements que té una llista s'utilitzala funció len()
+=======
+Per declarar una variable s'ha de fer:
+
+```python
+nom_de_la_variable = int(5)
+```
+
+**IMPORTANT:** Aquestes variables no poden contindre espais (` `)
+
+### Manipular variables
+
+Els Strings es poden sumar entre si:
+
+```python
+a = "Hola "
+b = "que tal"
+
+a + b # "Hola que tal"
+```
+
+Els ints i els floats tenen diferents modificadors:
+
+```python
+# + = Sumar
+5 + 5
+# - = Restar
+5 - 5
+# * = Multiplicar
+5 * 5
+# / = Dividir (sempre retorna un float)
+5 / 5
+# // = Dividir (retorna un int)
+5 // 5
+# % = Modul (residu d'una divisió)
+5 % 5
+```
+
+
+>>>>>>> 6403636cd06f91c055899f8ffbdee98677ab623f
 
 len(llista_str) # aixó seria 2 perque hi han dos elements
 ```
