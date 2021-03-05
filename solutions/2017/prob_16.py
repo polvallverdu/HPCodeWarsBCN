@@ -1,10 +1,11 @@
-def getLudic(n):
-
+def get_ludic(n):
     ludics = []
+
     for i in range(1, n + 1):
         ludics.append(i)
 
     index = 1
+
     while(index != len(ludics)):
         first_ludic = ludics[index]
         remove_index = index + first_ludic
@@ -14,11 +15,10 @@ def getLudic(n):
             remove_index = remove_index + first_ludic - 1
 
         index += 1
-
     return ludics
 
 
 n = int(input())
-ludics = getLudic(n)
+ludics = get_ludic(n)
 for x in range(len(ludics)):
     print(ludics[x], end=' ')

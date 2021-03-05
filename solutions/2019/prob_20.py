@@ -1,4 +1,4 @@
-def ternary(n):
+def ternary(n: int) -> str:
     if n == 0:
         return '0'
     nums = []
@@ -7,7 +7,4 @@ def ternary(n):
         nums.append(str(r))
     return ''.join(reversed(nums))
 
-
-n = int(input())
-
-print(ternary(n))
+print(ternary(int(input())))
