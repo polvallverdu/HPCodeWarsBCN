@@ -1,5 +1,4 @@
-def getLudic(n):
-
+def get_ludic(n):
     ludics = []
     for i in range(1, n + 1):
         ludics.append(i)
@@ -19,6 +18,6 @@ def getLudic(n):
 
 
 n = int(input())
-ludics = getLudic(n)
+ludics = get_ludic(n)
 for x in range(len(ludics)):
     print(ludics[x], end=' ')
