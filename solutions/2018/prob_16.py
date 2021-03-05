@@ -1,6 +1,6 @@
 
 
-def isPrime(x):
+def is_prime(x):
     prime = True
     i = 2
     while i < x:
@@ -11,21 +11,21 @@ def isPrime(x):
     return prime
 
 
-def reverse(x):
+def reverse_num(num: int) -> int:
     reverse = 0
-    while x > 0:
-        reminder = x % 10
+    while num > 0:
+        reminder = num % 10
         reverse = (reverse*10) + reminder
-        x = x//10
+        num = num//10
     return reverse
 
 
-def polindrome(x):
-    return(str(x) == str(x)[::-1])
+def polindrome(num: int) -> bool:
+    return str(num) == str(num)[::-1]
 
 
 number = int(input())
-result = isPrime(number) and isPrime(reverse(number))
+result = is_prime(number) and is_prime(reverse_num(number))
 result = result and not polindrome(number)
 if result:
     print(str(number) + " is an emirp number")
