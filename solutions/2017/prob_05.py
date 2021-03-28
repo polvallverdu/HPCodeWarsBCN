@@ -1,3 +1,5 @@
+import math
+
 R = float(input())
 r = float(input())
 
