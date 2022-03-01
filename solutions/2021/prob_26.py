@@ -198,11 +198,9 @@ word = CodeWarsHelper.input_string()
 possibilities = sentence.split(" ")
 pword = ""
 
-for letter in word:
-    pword = pword + letter
-    for x in list(possibilities):
-        if not x.startswith(pword):
-            possibilities.remove(x)
+for w in sentence:
+    if w.startswith(word):
+        possibilities.append(w)
 
 duplicated = CodeWarsHelper.get_list_duplicates_with_amount(possibilities)
 
