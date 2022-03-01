@@ -191,3 +191,7 @@ class CodeWarsHelper:
   def get_list_alphabetic_order(l: list, reverse: bool = False) -> list:
     l = sorted(l)
     return l if not reverse else l.reverse()
+
+  @staticmethod
+  def chunk_list(l: list, element_num: int) -> list:
+    return [l[i:i+element_num] for i in range(0, len(l), element_num)]
