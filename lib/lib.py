@@ -3,16 +3,16 @@ import sys
 
 
 class CodeWarsHelper:
-  
+
   def __init__(self) -> None:
     # Hi Judges :wave:, welcome to my lib :D
     # Esto no es codigo robado :wink:
     self.__author__ = "Pol Vallverdu"
-  
+
   @staticmethod
   def input_string() -> str:
     return input().replace('\n', '').replace('\r', '').lstrip().rstrip()
-  
+
   @staticmethod
   def input_string_list(end="") -> list:
     inputs = list()
@@ -23,22 +23,22 @@ class CodeWarsHelper:
           break
 
       inputs.append(str(line))
-    
+
     return inputs
-  
+
   @staticmethod
   def input_int() -> int:
     return int(input())
-  
+
   @staticmethod
   def input_int_list(end="") -> list:
     inputs = []
-    
+
     for l in CodeWarsHelper.input_string_list(end):
       inputs.append(int(l))
-      
+
     return inputs
-  
+
   @staticmethod
   def input_float() -> float:
     return float(input())
@@ -46,12 +46,12 @@ class CodeWarsHelper:
   @staticmethod
   def input_float_list(end="") -> list:
     inputs = []
-    
+
     for l in CodeWarsHelper.input_string_list(end):
       inputs.append(float(l))
-      
+
     return inputs
-  
+
   @staticmethod
   def truncate(number: float, digits: int) -> float:
     stepper = 10.0 ** digits
@@ -177,4 +177,9 @@ class CodeWarsHelper:
           if l.count(i) > 1 and i not in duplicates:
               duplicates.append(i)
       return duplicates
+
+  @staticmethod
+  def get_list_alphabetic_order(l: list, reverse: bool = False) -> list:
+    l = sorted(l)
+    return l if not reverse else l.reverse()
   
