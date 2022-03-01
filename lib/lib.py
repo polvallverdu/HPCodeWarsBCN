@@ -177,9 +177,17 @@ class CodeWarsHelper:
           if l.count(i) > 1 and i not in duplicates:
               duplicates.append(i)
       return duplicates
-
+  
+  @staticmethod
+  def get_list_duplicates_with_amount(l: list) -> list:
+      duplicates = []
+      for i in l:
+          if l.count(i) > 1 and i not in duplicates:
+              duplicates.append({"count": l.count(i), "value": i})
+              
+      return duplicates
+  
   @staticmethod
   def get_list_alphabetic_order(l: list, reverse: bool = False) -> list:
     l = sorted(l)
     return l if not reverse else l.reverse()
-  
