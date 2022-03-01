@@ -169,3 +169,12 @@ class CodeWarsHelper:
               num -= val[i]
           i += 1
       return roman_num
+
+  @staticmethod
+  def get_list_duplicates(l: list) -> list:
+      duplicates = []
+      for i in l:
+          if l.count(i) > 1 and i not in duplicates:
+              duplicates.append(i)
+      return duplicates
+  
