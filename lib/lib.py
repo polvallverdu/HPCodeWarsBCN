@@ -51,11 +51,19 @@ class Matrix:  # This is a MaTriX XD
         self.__updateMatrix(self.__rows, columns)
     
     def setSquare(self, x: int, y: int, value) -> None:
-        self.__updateMatrix(max(y, self.__rows), max(x, self.__columns))
-        
+        self.__updateMatrix(max(y+1, self.__rows), max(x+1, self.__columns))
         self.__matrix[y][x].value = value
 
     def __updateMatrix(self, rows: int, columns: int) -> None:
+        if self.__rows != rows:
+            if rows > self.__rows:
+                for y in range(self.__rows, rows):
+                    self.__matrix.append([Square(x, y) for x in range(self.__columns)])
+            else:
+                for y in range(rows, self.__rows):
+                    del self.__matrix[y]
+            self.__rows = rows
+        
         if self.__columns != columns:
             if columns > self.__columns:
                 for y, row in enumerate(self.__matrix):
@@ -65,27 +73,25 @@ class Matrix:  # This is a MaTriX XD
                     for x in range(columns, self.__columns):
                         del row[x]
             self.__columns = columns
-        
-        if self.__rows != rows:
-            if rows > self.__rows:
-                for x in range(self.__rows, rows):
-                    self.__matrix.append([Square(x, y) for y in range(self.__columns)])
-            else:
-                for x in range(rows, self.__rows):
-                    del self.__matrix[x]
     
     def isSquare(self, x: int, y: int):
-      return x < 0 or x >= self.__columns or y < 0 or y >= self.__rows
+      return x > 0 and x < self.__columns and y > 0 and y < self.__rows
 
     def getSquare(self, x: int, y: int, newSquareIfMissing: bool=False) -> Square or None:
         return self.__matrix[y][x] if self.isSquare(x, y) else (None if not newSquareIfMissing else Square(x, y))
 
-    def getWindow(self, x: int, y: int, radius: int, onlyHorizontalAndVertical: bool = False) -> list[Square]:
-        for x in range(x - radius, x + radius + 1):
-            for y in range(y - radius, y + radius + 1):
-                if onlyHorizontalAndVertical and (x != x or y != y):
-                    continue
-                yield self.getSquare(x, y)
+    def getWindow(self, m_x: int, m_y: int, size: int, onlyHorizontalAndVertical: bool = False) -> list[Square]:
+      ws = size//2
+      possible_x = list(range(m_x - ws, m_x + ws + 1))
+      possible_y = list(range(m_y - ws, m_y + ws + 1))
+      
+      for y in possible_y:
+        for x in possible_x:
+          if onlyHorizontalAndVertical and (y != m_y and x != m_x):
+            continue
+          s = self.getSquare(x, y)
+          if s is not None:
+            yield s
                     
 
     @property
