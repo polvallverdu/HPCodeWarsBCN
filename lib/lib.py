@@ -9,15 +9,25 @@ class Square:
         self.x = x
         self.y = y
         self.value = value
-
-
-class Matrix:
     
-    def __init__(self, rows: int = 0, columns: int = -1):
+    def __str__(self) -> str:
+        return f"({self.x}, {self.y} = {self.value})"
+
+
+class Matrix:  # This is a MaTriX XD
+  
+    @staticmethod
+    def fromMatrix(matrix: list[list[Square]]) -> Matrix:
+        m = Matrix(len(matrix), len(matrix[0]), False)
+        m.__matrix = matrix
+        return m
+
+    def __init__(self, rows: int = 0, columns: int = -1, generate: bool = True) -> None:
         self.__rows = rows
         self.__columns = columns if columns != -1 else rows
         self.__matrix = []
-        self.__generate()
+        if generate:
+            self.__generate()
 
     def __generate(self) -> None:
       for y in range(self.__rows):
@@ -63,24 +73,20 @@ class Matrix:
             else:
                 for x in range(rows, self.__rows):
                     del self.__matrix[x]
+    
+    def isSquare(self, x: int, y: int):
+      return x < 0 or x >= self.__columns or y < 0 or y >= self.__rows
 
     def getSquare(self, x: int, y: int, newSquareIfMissing: bool=False) -> Square or None:
-        try:
-            return self.__matrix[x][y]
-        except:
-            return None if not newSquareIfMissing else Square(x, y)
+        return self.__matrix[y][x] if self.isSquare(x, y) else (None if not newSquareIfMissing else Square(x, y))
 
     def getWindow(self, x: int, y: int, radius: int, onlyHorizontalAndVertical: bool = False) -> list[Square]:
-        result = []
-
         for x in range(x - radius, x + radius + 1):
             for y in range(y - radius, y + radius + 1):
-                if x >= 0 and y >= 0 and x < self.__rows and y < self.__columns:
-                    if onlyHorizontalAndVertical and (x != x or y != y):
-                        continue
-                    result.append(self.__matrix[x][y])
-
-        return result
+                if onlyHorizontalAndVertical and (x != x or y != y):
+                    continue
+                yield self.getSquare(x, y)
+                    
 
     @property
     def squares(self) -> list[Square]:
@@ -89,15 +95,27 @@ class Matrix:
                 yield c
     
     def getSquaresInZone(self, x1: int, y1: int, x2: int, y2: int) -> list[Square]:
-        for x in range(x1, x2 + 1):
-            for y in range(y1, y2 + 1):
-                yield self.getSquare(x, y)
+        return self.getMatrixOfZone(x1, y1, x2, y2).squares
     
     def getMatrixOfZone(self, x1: int, y1: int, x2: int, y2: int) -> Matrix:
-        m = Matrix(x2 - x1 + 1, y2 - y1 + 1)
-        for y in range(y1, y2 + 1):
-            for x in range(x1, x2 + 1):
-                m.setSquare(x - x1, y - y1, self.getSquare(x, y))
+        if x1 > x2:
+            x1, x2 = x2, x1
+        if y1 > y2:
+            y1, y2 = y2, y1
+            
+        cm = [row.copy() for row in self.__matrix]
+        for _ in range(y2 + 1, self.__rows):
+          del cm[y2+1]
+        for _ in range(0, y1):
+          del cm[0]
+        for _ in range(x2 + 1, self.__columns):
+          for row in cm:
+            del row[x2+1]
+        for _ in range(0, x1):
+          for row in cm:
+            del row[0]
+        
+        return Matrix.fromMatrix(cm)
 
 
 class CodeWarsHelper:
