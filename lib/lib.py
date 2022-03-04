@@ -149,6 +149,17 @@ class CodeWarsHelper:
         return inputs
 
     @staticmethod
+    def input_string_spaces(separator=" ") -> list:
+        return CodeWarsHelper.input_string().split(separator)
+    
+    @staticmethod
+    def input_string_spaces_list(end="", separator=" ") -> list:
+        r = []
+        for l in CodeWarsHelper.input_string_list(end):
+            r.extend(l.split(separator))
+        return r
+
+    @staticmethod
     def input_int() -> int:
         return int(input())
 
@@ -160,6 +171,17 @@ class CodeWarsHelper:
             inputs.append(int(l))
 
         return inputs
+    
+    @staticmethod
+    def input_int_spaces(separator=" ") -> list:
+        return [int(n) for n in CodeWarsHelper.input_string().split(separator)]
+    
+    @staticmethod
+    def input_int_spaces_list(end="", separator=" ") -> list:
+        r = []
+        for l in CodeWarsHelper.input_string_list(end):
+            r.extend([int(i) for i in l.split(separator)])
+        return r
 
     @staticmethod
     def input_float() -> float:
@@ -173,6 +195,17 @@ class CodeWarsHelper:
             inputs.append(float(l))
 
         return inputs
+
+    @staticmethod
+    def input_float_spaces(separator=" ") -> list:
+        return [float(n) for n in CodeWarsHelper.input_string().split(separator)]
+    
+    @staticmethod
+    def input_float_spaces_list(end="", separator=" ") -> list:
+        r = []
+        for l in CodeWarsHelper.input_string_list(end):
+            r.extend([float(i) for i in l.split(separator)])
+        return r
 
     @staticmethod
     def truncate(number: float, digits: int) -> float:
@@ -339,7 +372,9 @@ class CodeWarsHelper:
     @staticmethod
     def get_list_alphabetic_order(l: list, reverse: bool = False) -> list:
         l = sorted(l)
-        return l if not reverse else l.reverse()
+        if reverse:
+            l.reverse()
+        return l
 
     @staticmethod
     def chunk_list(l: list, element_num: int) -> list:
