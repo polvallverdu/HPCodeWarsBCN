@@ -52,7 +52,17 @@ class Matrix:  # This is a MaTriX XD
     
     def setSquare(self, x: int, y: int, value) -> None:
         self.__updateMatrix(max(y+1, self.__rows), max(x+1, self.__columns))
-        self.__matrix[y][x].value = value
+        try:
+          self.__matrix[y][x].value = value
+        except:
+          self.__matrix[y][x] = Square(x, y, value)
+    
+    def setSquareRaw(self, square: Square) -> None:
+        x = square.x
+        y = square.y
+        
+        self.__updateMatrix(max(y+1, self.__rows), max(x+1, self.__columns))
+        self.__matrix[y][x] = square
 
     def __updateMatrix(self, rows: int, columns: int) -> None:
         if self.__rows != rows:
@@ -74,11 +84,24 @@ class Matrix:  # This is a MaTriX XD
                         del row[x]
             self.__columns = columns
     
-    def isSquare(self, x: int, y: int):
-      return x > 0 and x < self.__columns and y > 0 and y < self.__rows
+    def isSquare(self, x: int, y: int, realResult: bool=False):
+      if not realResult:
+        return (x > 0 and x < self.__columns and y > 0 and y < self.__rows)
 
-    def getSquare(self, x: int, y: int, newSquareIfMissing: bool=False) -> Square or None:
-        return self.__matrix[y][x] if self.isSquare(x, y) else (None if not newSquareIfMissing else Square(x, y))
+      try:
+        a = self.__matrix[y][x]
+        return not a is None
+      except:
+        return False
+
+    def getSquare(self, x: int, y: int, newSquareIfOutside: bool=False) -> Square or None:
+        if self.isSquare(x, y, True):
+          return self.__matrix[y][x]
+        if newSquareIfOutside and not self.isSquare(x, y):
+          return Square(x, y)
+        s = Square(x, y)
+        self.setSquareRaw(s)
+        
 
     def getWindow(self, m_x: int, m_y: int, size: int, onlyHorizontalAndVertical: bool = False) -> list[Square]:
       ws = size//2
