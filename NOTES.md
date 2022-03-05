@@ -95,7 +95,7 @@ També es poden fer llistes
 
 ```python
 
-# Les llistes es creen posan elements dintre de [] separant per , queca element
+# Les llistes es creen posan elements dintre de [] separant per una "," cada element
 
 llista_str = ['patates', 'tomaquet']
 llista_int = [0, 1]
@@ -110,4 +110,26 @@ llista_str[0] #això és igual a patata
 
 
 len(llista_str) # aixó seria 2 perque hi han dos elements
+llista_str.append("aa") # Afegeix "aa" a la llista
+llista_str.remove("aa") # Elimina "aa" de la llista
+del llista_str[0] # Elimina l'element que estigui en la posició 0
+```
+
+## Diccionaris
+
+Es com una llista, pero té un valor per accedir a un altre valor
+
+```python
+
+diccionari = {"test1": "hola", "test2": "adeu"}
+
+diccionari["test1"] # Això es igual a "hola", perquè "test1" es la seva key.
+diccionari["test3"] = "que tal" # Això afegeix al diccionari un element "que tal" amd la key "test3"
+```
+
+## Funcions Utils
+```python
+
+max(2, 4) # Màxim valor
+min(3, 4) # Mínim valor
 ```
