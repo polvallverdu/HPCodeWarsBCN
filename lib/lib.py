@@ -402,3 +402,16 @@ class CodeWarsHelper:
     @staticmethod
     def chunk_list(l: list, element_num: int) -> list:
         return [l[i:i+element_num] for i in range(0, len(l), element_num)]
+
+    @staticmethod
+    def mcd(a, b):
+        temporal = 0
+        while b != 0:
+            temporal = b
+            b = a % b
+            a = temporal
+        return a
+    
+    @staticmethod
+    def mcm(a, b):
+        return (a * b) / CodeWarsHelper.mcd(a, b)
