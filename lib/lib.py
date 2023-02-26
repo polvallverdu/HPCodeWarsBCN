@@ -1,4 +1,3 @@
-from __future__ import annotations
 import math
 import sys
 
@@ -404,14 +403,28 @@ class CodeWarsHelper:
         return [l[i:i+element_num] for i in range(0, len(l), element_num)]
 
     @staticmethod
-    def mcd(a, b):
-        temporal = 0
-        while b != 0:
-            temporal = b
-            b = a % b
-            a = temporal
-        return a
-    
+    def mcd(*numbers):
+        if len(numbers) == 0:
+            return None
+        elif len(numbers) == 1:
+            return numbers[0]
+        else:
+            # apply Euclidean algorithm iteratively
+            a = numbers[0]
+            for b in numbers[1:]:
+                while b:
+                    a, b = b, a % b
+            return a
+
     @staticmethod
-    def mcm(a, b):
-        return (a * b) / CodeWarsHelper.mcd(a, b)
+    def mcm(*numbers):
+        if len(numbers) == 0:
+            return None
+        elif len(numbers) == 1:
+            return numbers[0]
+        else:
+            # apply LCM formula iteratively
+            result = numbers[0]
+            for num in numbers[1:]:
+                result = (result * num) // CodeWarsHelper.gcd(result, num)
+            return result
