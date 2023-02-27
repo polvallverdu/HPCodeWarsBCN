@@ -133,6 +133,7 @@ llista_str[0] #això és igual a patata
 len(llista_str) # aixó seria 2 perque hi han dos elements
 llista_str.append("aa") # Afegeix "aa" a la llista
 llista_str.remove("aa") # Elimina "aa" de la llista
+llista_str.reverse() # Inverteix la llista
 del llista_str[0] # Elimina l'element que estigui en la posició 0
 ```
 
@@ -151,7 +152,46 @@ diccionari["test3"] = "que tal" # Això afegeix al diccionari un element "que ta
 ## Funcions Utils
 ```python
 
+input() # Demana un input a l'usuari. Sempre torna un string. Per pasaro a int o float s'ha de fer int(input()) o float(input())
+print("string") # Imprimeix un string
+
 max(2, 4) # Màxim valor
 min(3, 4) # Mínim valor
 abs(-69) # Valor absolut
+sorted([llista o string]) # Ordena la llista o string alfabeticament
+```
+
+## Truquitos 🤙
+
+### Formatejar string
+
+Hi ha dues formes de formatejar strings:
+
+```python
+# Forma 1 -> una "f" davant el string, i posar les variables dintre de {}. No funciona si has d'accedir a una llista, o un diccionari (utilitzar []).
+print(f"{variable1} {45+2}")
+
+# Amb aquesta forma pots declarar un nombre fix de decimals, o de numeros
+var = 5.123456789
+var2 = 25
+print(f"{var:.2f} {var2:05}") # = 5.12 00025
+
+############   EXTRA   ############
+
+# zeros padding
+print(f'{mm}:{ss:02}:{ms:03}')  # 5:03:002
+
+# space padding
+print(f'{mm}:{ss:02}:{ms:3}')  # 5:03:  2
+
+# zeros padding and decimals : total 6 len, including dot and 2 decimals
+print(f'{mm}:{ss:02}:{ms:06.2f}')  # 5:03:002.00
+
+# zeros leading
+print(f'{mm}:{ss:02}:{ms:<03}')  # 5:03:200
+```
+
+```python
+# Forma 2 -> posar {} en el string, i cridar la funció format() amb les variables dintre de (). Funciona amb llistes i diccionaris.
+print("{} gfsdfsdfds {}".format(diccionari["test"], llista[0]))
 ```
