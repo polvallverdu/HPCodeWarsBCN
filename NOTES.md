@@ -1,5 +1,8 @@
 # Apunts Python 3
 
+## Que son els "#"
+S'anomenen comentaris. Tot el que esta darrera d'un "#" no afectará al codi.
+
 ## Tipus de variables
 
 Hi ha diferents tipus de variables en python:
@@ -13,6 +16,10 @@ int(69)
 
 # Float: nombre amb decimals
 float(69.5)
+
+# Bool: Cert o fals
+bool(true)
+bool(false)
 ```
 
 Per declarar una variable s'ha de fer:
@@ -31,7 +38,7 @@ Els Strings es poden sumar entre si:
 a = "Hola "
 b = "que tal"
 
-a + b # "Hola que tal"
+a + b # = "Hola que tal"
 ```
 
 Els ints i els floats tenen diferents modificadors:
@@ -49,6 +56,8 @@ Els ints i els floats tenen diferents modificadors:
 5 // 5
 # % = Modul (residu d'una divisió)
 5 % 5
+# ** = Potencia (elevar un numero)
+5 ** 5 # = 25
 ```
 
 ## Condicionals
@@ -87,6 +96,18 @@ elif a == b:
     print('a és igual a b')
 else:
     print('a és més petita que b')
+```
+
+### Keywords
+
+Hi ha diferents paraules que faciliten els condicionals:
+
+```python
+if x and y: # S'han de cumplir les dues condicions
+
+if x or y: # S'ha de cumplir una de les dues condicions
+
+if "b" in "abcd": # serà cert quan la primera variable estigui dintre de la segona. També funciona amb llistes.
 ```
 
 ## Lists o Arrays
@@ -132,4 +153,5 @@ diccionari["test3"] = "que tal" # Això afegeix al diccionari un element "que ta
 
 max(2, 4) # Màxim valor
 min(3, 4) # Mínim valor
+abs(-69) # Valor absolut
 ```
