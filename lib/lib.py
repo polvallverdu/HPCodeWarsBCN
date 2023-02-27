@@ -428,3 +428,22 @@ class CodeWarsHelper:
             for num in numbers[1:]:
                 result = (result * num) // CodeWarsHelper.gcd(result, num)
             return result
+
+    @staticmethod
+    def decimal_to_binary(decimal_num: int) -> str:
+        binary_num = ""
+        if decimal_num == 0:
+            return "0"
+        while decimal_num > 0:
+            binary_num = str(decimal_num % 2) + binary_num
+            decimal_num //= 2
+        return binary_num
+    
+    @staticmethod
+    def binary_to_decimal(binary_num: str) -> int:
+        decimal_num = 0
+        for i in range(len(binary_num)):
+            digit = int(binary_num[i])
+            decimal_num += digit * 2**(len(binary_num) - i - 1)
+        return decimal_num
+
