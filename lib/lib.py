@@ -447,3 +447,15 @@ class CodeWarsHelper:
             decimal_num += digit * 2**(len(binary_num) - i - 1)
         return decimal_num
 
+    #def transpose_matrix(rows: list[list[any]]) -> list[list[any]]:
+    @staticmethod
+    def transpose_matrix(rows: list) -> list:
+        num_rows = len(rows)
+        num_cols = len(rows[0])
+        columns = [[] for _ in range(num_cols)]
+        for i in range(num_rows):
+            for j in range(num_cols):
+                columns[j].append(rows[i][j])
+        return columns
+
+
