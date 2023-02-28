@@ -448,14 +448,29 @@ class CodeWarsHelper:
         return decimal_num
 
     #def transpose_matrix(rows: list[list[any]]) -> list[list[any]]:
+    # @staticmethod
+    # def transpose_matrix(rows: list) -> list:
+    #     num_rows = len(rows)
+    #     num_cols = len(rows[0])
+    #     columns = [[] for _ in range(num_cols)]
+    #     for i in range(num_rows):
+    #         for j in range(num_cols):
+    #             columns[j].append(rows[i][j])
+    #     return columns
+    
+    # def transpose_matrix(matrix: list[list[any]]) -> list[list[any]]:
     @staticmethod
-    def transpose_matrix(rows: list) -> list:
-        num_rows = len(rows)
-        num_cols = len(rows[0])
-        columns = [[] for _ in range(num_cols)]
-        for i in range(num_rows):
-            for j in range(num_cols):
-                columns[j].append(rows[i][j])
-        return columns
-
+    def transpose_matrix(matrix: list) -> list:
+        num_rows = len(matrix)
+        num_cols = len(matrix[0])
+        transposed = []
+        for j in range(num_cols):
+            transposed_row = []
+            for i in range(num_rows):
+                if j < len(matrix[i]):
+                    transposed_row.append(matrix[i][j])
+                else:
+                    transposed_row.append(None)
+            transposed.append(transposed_row)
+        return transposed
 
