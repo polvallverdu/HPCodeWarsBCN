@@ -13,5 +13,5 @@ Here are some interesting stuff that I've found/created during the last years:
 - Python notes (in Catalan): [NOTES.md](https://github.com/polvallverdu/HPCodeWarsBCN/blob/main/NOTES.md)
 - Python notes (in English): Doesn't exist yet :(
 - Past years PDFs: [PDFs](https://github.com/polvallverdu/HPCodeWarsBCN/tree/main/pdfs)
-- Past year solutions (written by me and [pause](https://github.com/pausiete7)): [Solutions](https://github.com/polvallverdu/HPCodeWarsBCN/tree/main/solutions)
-- Library we use: [lib.py](https://github.com/polvallverdu/HPCodeWarsBCN/blob/main/lib/lib.py]
+- Past year solutions (written by me and pause): [Solutions](https://github.com/polvallverdu/HPCodeWarsBCN/tree/main/solutions)
+- Library we use: [lib.py](https://github.com/polvallverdu/HPCodeWarsBCN/blob/main/lib/lib.py)
