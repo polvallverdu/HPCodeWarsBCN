@@ -1,13 +1,8 @@
-chars = list()
-kjdas = False
-
-for char in input().lower().replace(".", "").replace(",", "").replace("#", "").replace("'", "").replace("\"", "").replace(":", "").replace(";", "").replace("-", ""):
-    if char in chars:
+word = input().rstrip().lower()
+checked = []
+for char in word:
+    if char in checked:
         print("Not an isogram")
-        kjdas = True
-        break
-    chars.append(char)
-
-
-if not kjdas:
-    print("Isogram detected")
+        exit()
+    checked.append(char)
+print("Isogram detected")

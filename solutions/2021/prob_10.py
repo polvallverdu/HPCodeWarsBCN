@@ -1,40 +1,19 @@
-import sys
+players_n = int(input())
 
+players = []
 
-def get_clean_num(line):
-    splitted = line.split(' ')
-    a = splitted[2]
-    b = splitted[6]
-    return str(splitted[0]), int(a), int(b)
+for _ in range(players_n):
+    a = input().rstrip().replace(" scored", "").replace(" goal(s) and earned", "").replace(" spade(s)", "")
+    name, goals, spades = a.split(" ")
+    players.append([name, int(goals), int(spades)])
 
+res = {}
+for p in players:
+    res[p[0]] = p[1]*4+p[2]*2
 
-def solution(inputs: list):
-    data = dict()
-    for player in inputs:
-        name, a, b = get_clean_num(player)
-        data[name] = a*4+b*2
-    results = sorted(data.items(), key=lambda x: x[1])
-    results.reverse()
-    if results[0][1] == results[1][1]:
-        print("DRAW")
-    else:
-        print(
-            f"{results[0][0]} is the MVP with {results[0][1]} points!")
+s = sorted(res.items(), key=lambda x:x[1], reverse=True)
 
-
-def get_inputs(players_size) -> list:
-    inputs = list()
-
-    count = 1
-    for line in sys.stdin:
-        line = line.replace('\n', '').replace('\r', '')
-        inputs.append(str(line))
-        if count == players_size:
-            break
-        count += 1
-
-    return inputs
-
-
-players_size = int(input())
-solution(get_inputs(players_size))
+if len(s) == 1 or s[0][1] != s[1][1]:
+    print("{} is the MVP with {} points!".format(s[0][0], s[0][1]))
+else:
+    print("DRAW")
