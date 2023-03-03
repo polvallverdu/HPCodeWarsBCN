@@ -195,3 +195,11 @@ print(f'{mm}:{ss:02}:{ms:<03}')  # 5:03:200
 # Forma 2 -> posar {} en el string, i cridar la funció format() amb les variables dintre de (). Funciona amb llistes i diccionaris.
 print("{} gfsdfsdfds {}".format(diccionari["test"], llista[0]))
 ```
+
+### Girar un String
+
+Com invertir un string: 
+
+```python
+a = "Hola"[::-1] # -> a serà "aloH"
+```
