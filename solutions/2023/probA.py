@@ -1,0 +1,1 @@
+print('Celebrate and have a good time at HP CodeWars Barcelona 2023!')

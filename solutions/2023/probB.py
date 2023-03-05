@@ -1,0 +1,1 @@
+print(f"Counting down {input()} seconds to start HP CodeWars 2023")
