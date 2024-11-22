@@ -66,12 +66,12 @@ També a python es solen utilitzar condicionals(if, else, elif) per posar condic
 
 ```python
 
-a == b: #aixó es si a és igual a b
-a != b: #aixó es si a és derent a b
-a > b: #aixó es si a és més gran que b
-a < b: #aixó es si a es més petit que b
-a => b: #aixó es si a es igual o més gran que b
-a =< b: #aixó es si a es igual o més petit que b
+a == b: # aixó es si a és igual a b
+a != b: # aixó es si a és derent a b
+a > b: # aixó es si a és més gran que b
+a < b: # aixó es si a es més petit que b
+a => b: # aixó es si a es igual o més gran que b
+a =< b: # aixó es si a es igual o més petit que b
 
 a = 2
 b = 2
