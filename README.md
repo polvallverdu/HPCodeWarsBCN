@@ -4,7 +4,7 @@ Welcome to a public repository for my own HPCodeWars team. This repository is in
 
 ## Team members
 
-- Pol Vallverdú (me): [website](https://pol.engineer/), [twitter](https://twitter.com/pol_vallverdu), [other socials](https://s.pol.engineer/)
+- Pol Vallverdú (me): [website](https://polv.dev/), [twitter](https://twitter.com/pol_vallverdu)
 - Pau Sevilla (pause): [website](https://pausevilla.com/), [twitter](https://twitter.com/pausiete7)
 
 ## Interesting stuff
